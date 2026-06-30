@@ -32,7 +32,7 @@ export default function DashboardPage() {
     <ProtectedRoute>
       <main className="page-surface min-h-[calc(100vh-73px)] px-6 py-10">
         <div className="mx-auto max-w-6xl">
-        <section className="overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-2xl shadow-blue-950/15">
+        <section className="overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-lg shadow-blue-950/10">
           <div className="primary-gradient p-8">
           <p className="text-sm font-bold text-blue-100">Dashboard</p>
           <div className="mt-3 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">

@@ -98,15 +98,15 @@ export default function TicketActions({ ticket, user, onChanged, onDeleted }) {
         <div className="mt-6 rounded-2xl border border-blue-100 bg-blue-50/60 p-4">
           <h3 className="font-bold text-slate-900">Asignación</h3>
           {isAdmin ? (
-            <div className="mt-3 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-3 flex flex-col gap-3">
               <select value={assigneeId} onChange={(event) => setAssigneeId(event.target.value)} className="field-control">
                 <option value="">Selecciona soporte</option>
                 {supportUsers.map((support) => <option key={support.id} value={support.id}>{support.name} · {support.email}</option>)}
               </select>
-              <button type="button" onClick={handleAssign} className="rounded-xl px-4 py-3 font-bold primary-button transition">Asignar</button>
+              <button type="button" onClick={handleAssign} className="w-full rounded-xl px-4 py-3 font-bold primary-button transition">Asignar</button>
             </div>
           ) : (
-            <button type="button" onClick={handleAssign} className="mt-3 rounded-xl px-4 py-3 font-bold primary-button transition">Asignarme</button>
+            <button type="button" onClick={handleAssign} className="mt-3 w-full rounded-xl px-4 py-3 font-bold primary-button transition">Asignarme</button>
           )}
         </div>
       )}
@@ -114,12 +114,12 @@ export default function TicketActions({ ticket, user, onChanged, onDeleted }) {
       {canChangeStatus && (
         <form onSubmit={handleStatusChange} className="mt-6 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-4">
           <h3 className="font-bold text-slate-900">Cambiar estado</h3>
-          <div className="mt-3 grid gap-3 md:grid-cols-[220px_1fr_auto]">
+          <div className="mt-3 flex flex-col gap-3">
             <select aria-label="Nuevo estado del ticket" value={status || ticket.status} onChange={(event) => setStatus(event.target.value)} className="field-control">
               {statuses.map((item) => <option key={item} value={item}>{item}</option>)}
             </select>
-            <input aria-label="Comentario para cambio de estado" value={comment} onChange={(event) => setComment(event.target.value)} placeholder="Comentario opcional" className="field-control" />
-            <button type="submit" className="rounded-xl px-4 py-3 font-bold primary-button transition">Guardar</button>
+            <textarea aria-label="Comentario para cambio de estado" value={comment} onChange={(event) => setComment(event.target.value)} placeholder="Comentario opcional para registrar en el historial" rows="3" className="field-control resize-none" />
+            <button type="submit" className="w-full rounded-xl px-4 py-3 font-bold primary-button transition">Guardar cambio de estado</button>
           </div>
         </form>
       )}

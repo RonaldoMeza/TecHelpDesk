@@ -44,7 +44,7 @@ export default function LoginPage() {
   return (
     <main className="page-surface grid min-h-[calc(100vh-73px)] place-items-center px-6 py-12">
       <div className="grid w-full max-w-6xl gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center items-center">
-      <section className="overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-2xl shadow-blue-950/15 ">
+      <section className="overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-lg shadow-blue-950/10 ">
         <div className="primary-gradient p-8">
           <p className="text-sm font-bold text-blue-100">Credenciales de prueba</p>
           <h2 className="mt-3 text-3xl font-black tracking-tight">Acceso rápido al laboratorio</h2>
@@ -63,16 +63,16 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit} className="mt-8 space-y-5">
           <label className="block">
             <span className="text-sm font-semibold text-slate-700">Email</span>
-            <input name="email" type="email" value={form.email} onChange={handleChange} className="field-control mt-2" />
+            <input name="email" type="email" autoComplete="email" value={form.email} onChange={handleChange} className="field-control mt-2" />
           </label>
           <label className="block">
             <span className="text-sm font-semibold text-slate-700">Contraseña</span>
-            <input name="password" type="password" value={form.password} onChange={handleChange} className="field-control mt-2" />
+            <input name="password" type="password" autoComplete="current-password" value={form.password} onChange={handleChange} className="field-control mt-2" />
           </label>
 
           {error && <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">{error}</p>}
 
-          <button type="submit" disabled={loading} className="w-full rounded-xl px-5 py-3 font-bold primary-button transition disabled:cursor-not-allowed disabled:opacity-60">
+          <button type="submit" disabled={loading} className="w-full rounded-xl px-5 py-3 font-bold primary-button transition disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer">
             {loading ? 'Ingresando...' : 'Ingresar'}
           </button>
         </form>

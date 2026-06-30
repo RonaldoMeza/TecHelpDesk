@@ -56,20 +56,20 @@ export default function RegisterPage() {
         <form onSubmit={handleSubmit} className="mt-8 space-y-5">
           <label className="block">
             <span className="text-sm font-semibold text-slate-700">Nombre</span>
-            <input name="name" value={form.name} onChange={handleChange} className="field-control mt-2" />
+            <input name="name" autoComplete="name" value={form.name} onChange={handleChange} className="field-control mt-2" />
           </label>
           <label className="block">
             <span className="text-sm font-semibold text-slate-700">Email</span>
-            <input name="email" type="email" value={form.email} onChange={handleChange} className="field-control mt-2" />
+            <input name="email" type="email" autoComplete="email" value={form.email} onChange={handleChange} className="field-control mt-2" />
           </label>
           <label className="block">
             <span className="text-sm font-semibold text-slate-700">Contraseña</span>
-            <input name="password" type="password" value={form.password} onChange={handleChange} className="field-control mt-2" />
+            <input name="password" type="password" autoComplete="new-password" value={form.password} onChange={handleChange} className="field-control mt-2" />
           </label>
 
           {error && <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">{error}</p>}
 
-          <button type="submit" disabled={loading} className="w-full rounded-xl px-5 py-3 font-bold primary-button transition disabled:cursor-not-allowed disabled:opacity-60">
+          <button type="submit" disabled={loading} className="w-full rounded-xl px-5 py-3 font-bold primary-button transition disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer">
             {loading ? 'Registrando...' : 'Crear cuenta'}
           </button>
         </form>

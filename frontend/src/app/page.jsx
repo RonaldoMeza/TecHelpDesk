@@ -20,7 +20,7 @@ export default function Home() {
     <main className="page-surface min-h-[calc(100vh-73px)]">
       <section className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:py-24">
         <div>
-          <p className="inline-flex rounded-full border border-blue-200/80 bg-white/75 px-4 py-2 text-sm font-bold text-blue-700 shadow-sm shadow-blue-950/5 backdrop-blur">
+          <p className="inline-flex rounded-full border border-blue-200/80 bg-white px-4 py-2 text-sm font-bold text-blue-700 shadow-sm shadow-blue-950/5">
             Help Desk moderno para incidencias
           </p>
           <h1 className="mt-6 max-w-3xl text-4xl font-black tracking-[-0.04em] text-slate-950 sm:text-6xl">
@@ -41,7 +41,7 @@ export default function Home() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             {roles.map((role) => (
-              <span key={role} className="rounded-full border border-white/80 bg-white/75 px-4 py-2 text-sm font-bold text-slate-700 shadow-sm shadow-blue-950/5 backdrop-blur">
+              <span key={role} className="rounded-full border border-white/80 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm shadow-blue-950/5">
                 {role}
               </span>
             ))}

@@ -12,6 +12,12 @@ export default function manifest() {
     categories: ['business', 'productivity', 'utilities'],
     icons: [
       {
+        src: '/icon.svg',
+        sizes: '512x512',
+        type: 'image/svg+xml',
+        purpose: 'any maskable',
+      },
+      {
         src: '/favicon.ico',
         sizes: 'any',
         type: 'image/x-icon',

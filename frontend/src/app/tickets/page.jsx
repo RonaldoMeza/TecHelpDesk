@@ -39,7 +39,7 @@ export default function TicketsPage() {
     <ProtectedRoute>
       <main className="page-surface min-h-[calc(100vh-73px)] px-6 py-10">
         <div className="mx-auto max-w-6xl">
-        <header className="flex flex-col gap-4 overflow-hidden rounded-[2rem] primary-gradient p-8 text-white shadow-2xl shadow-blue-950/15 sm:flex-row sm:items-end sm:justify-between">
+        <header className="flex flex-col gap-4 overflow-hidden rounded-[2rem] primary-gradient p-8 text-white shadow-lg shadow-blue-950/10 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-bold text-blue-100">Tickets</p>
             <h1 className="mt-2 text-3xl font-black tracking-tight">Gestión de incidencias</h1>

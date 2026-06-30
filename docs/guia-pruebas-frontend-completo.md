@@ -232,11 +232,15 @@ URL recomendada: `http://localhost:3000`
 
 Pasos:
 
-1. Abrir Chrome DevTools.
-2. Usar ventana incognito para evitar que IndexedDB, cache o extensiones afecten Performance.
-3. Ir a Lighthouse.
-4. Seleccionar Performance, Accessibility, Best Practices y SEO.
-5. Ejecutar en Desktop y Mobile.
+1. Detener `npm run dev` si esta activo.
+2. Ejecutar `npm run build`.
+3. Ejecutar `npm run start`.
+4. Abrir una ventana incognito para evitar que IndexedDB, cache o extensiones afecten Performance.
+5. Abrir `http://localhost:3000`.
+6. Abrir Chrome DevTools.
+7. Ir a Lighthouse.
+8. Seleccionar Performance, Accessibility, Best Practices y SEO.
+9. Ejecutar en Desktop y Mobile.
 
 Resultado esperado:
 
@@ -247,9 +251,10 @@ Resultado esperado:
 
 Si el puntaje baja:
 
-- Probar con build de produccion: `npm run build` y `npm run start`.
+- Confirmar que no estas auditando `npm run dev`. Si Lighthouse muestra "Minify JavaScript", normalmente estas midiendo modo desarrollo, cache antigua o extensiones.
 - Cerrar extensiones del navegador.
 - Ejecutar nuevamente en ventana incognito.
+- Borrar datos del sitio desde DevTools > Application > Storage > Clear site data.
 - Revisar la consola por errores de red.
 - Asegurarse de auditar la landing `/`, no rutas privadas como `/dashboard` o `/tickets`, porque esas rutas estan marcadas como no indexables.
 

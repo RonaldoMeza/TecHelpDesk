@@ -144,13 +144,15 @@ npm run build
 ## Recomendaciones para medir Lighthouse
 
 1. Levantar backend con `npm run dev` desde `backend`.
-2. Levantar frontend con `npm run dev` desde `frontend`.
-3. Abrir `http://localhost:3000` en Chrome.
-4. Usar ventana incognito para evitar datos almacenados en IndexedDB, cache o extensiones.
-5. Abrir DevTools, pestaña Lighthouse.
-6. Ejecutar auditoria en modo Desktop y Mobile.
-7. Validar Performance, Accessibility, Best Practices y SEO.
-8. Si Performance baja, probar tambien con build de produccion: `npm run build` y `npm run start`.
+2. Desde `frontend`, ejecutar `npm run build`.
+3. Desde `frontend`, ejecutar `npm run start`.
+4. Abrir `http://localhost:3000` en Chrome.
+5. Usar ventana incognito para evitar datos almacenados en IndexedDB, cache o extensiones.
+6. Abrir DevTools, pestaña Lighthouse.
+7. Ejecutar auditoria en modo Desktop y Mobile.
+8. Validar Performance, Accessibility, Best Practices y SEO.
+
+Si Lighthouse muestra "Minify JavaScript", normalmente se esta auditando modo desarrollo, cache antigua o extensiones. Repetir con `npm run build` + `npm run start`, ventana incognito y datos del sitio limpios.
 
 Importante: medir SEO sobre la landing `/`. Las rutas `/dashboard` y `/tickets` son privadas y estan bloqueadas por robots/noindex, por lo que Lighthouse puede marcar SEO bajo si se auditan directamente.
 
