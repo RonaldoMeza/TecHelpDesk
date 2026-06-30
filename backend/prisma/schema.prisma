@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  SOPORTE
+  CLIENTE
+}
+
+enum TicketStatus {
+  ABIERTO
+  EN_PROCESO
+  RESUELTO
+  CERRADO
+}
+
+enum TicketPriority {
+  BAJA
+  MEDIA
+  ALTA
+  URGENTE
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(CLIENTE)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdTickets  Ticket[] @relation("TicketCreator")
+  assignedTickets Ticket[] @relation("TicketAssignee")
+  histories       TicketHistory[]
+}
+
+model Ticket {
+  id          Int            @id @default(autoincrement())
+  title       String
+  description String
+  category    String
+  priority    TicketPriority @default(MEDIA)
+  status      TicketStatus   @default(ABIERTO)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  creatorId  Int
+  assigneeId Int?
+
+  creator  User  @relation("TicketCreator", fields: [creatorId], references: [id])
+  assignee User? @relation("TicketAssignee", fields: [assigneeId], references: [id])
+
+  histories TicketHistory[]
+}
+
+model TicketHistory {
+  id        Int      @id @default(autoincrement())
+  comment   String
+  oldStatus TicketStatus?
+  newStatus TicketStatus?
+  createdAt DateTime @default(now())
+
+  ticketId Int
+  userId   Int
+
+  ticket Ticket @relation(fields: [ticketId], references: [id])
+  user   User   @relation(fields: [userId], references: [id])
+}
